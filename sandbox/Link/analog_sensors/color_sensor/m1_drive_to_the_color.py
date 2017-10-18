@@ -20,7 +20,7 @@ import ev3dev.ev3 as ev3
 import time
 
 import robot_controller as robo
- 
+
 
 # Potential values of the color_sensor.color property
 #   ev3.ColorSensor.COLOR_NOCOLOR is the value 0
