@@ -17,9 +17,9 @@ You will use that number to help you avoid messing up one another's work in your
 team repository. Conflicts in git can be resolved, but it's easier to just avoid them.
 
 The subfolders m1, m2, m3, and m4 that are within this `/sandbox` folder are all identical.
-- Team member #1 (penryoa aka Link) will work all of the TODOs in the m1 folder
-- Team member #2 (thompsm5 aka Maroon5) will work all of the TODOs in the m2 folder
-- Team member #3 (fill in your own name here) will work all of the TODOs in the m3 folder
+- Team member #1 (Olivia Penry aka Link) will work all of the TODOs in the m1 folder
+- Team member #2 (Anna Thompson aka Maroon5) will work all of the TODOs in the m2 folder
+- Team member #3 (Kaelyn Bock) will work all of the TODOs in the m3 folder
 
 **TODO: 2.**
 Fill in your name above then do a VCS -> Commit.. -> Commit and Push.
