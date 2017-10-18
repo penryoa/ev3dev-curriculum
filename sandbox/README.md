@@ -19,7 +19,7 @@ team repository. Conflicts in git can be resolved, but it's easier to just avoid
 The subfolders m1, m2, m3, and m4 that are within this `/sandbox` folder are all identical.
 - Team member #1 (Olivia Penry aka Link) will work all of the TODOs in the Link folder
 - Team member #2 (Anna Thompson aka Maroon5) will work all of the TODOs in the Maroon5 folder
-- Team member #3 (Kaelyn Bock) will work all of the TODOs in the bocksofcrocs folder
+- Team member #3 (Kaelyn Bock) will work all of the TODOs in the bocksofcrocs folder  
 
 **DONE: 2.**
 Fill in your name above then do a VCS -> Commit.. -> Commit and Push.
