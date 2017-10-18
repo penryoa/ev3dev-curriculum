@@ -19,7 +19,7 @@ Authors: David Fisher and PUT_YOUR_NAME_HERE.
 import ev3dev.ev3 as ev3
 import time
 
-import robot_controller as robo 
+import robot_controller as robo
 
 
 # Potential values of the color_sensor.color property
