@@ -8,10 +8,10 @@ to collect data, then make an equation to figure out the time needed given the d
 
 Note: If future modules you will learn different (BETTER) ways to drive a given distance.
 
-Authors: David Fisher and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+Authors: David Fisher and Olivia Penry.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
-# TODO: 2. Get a yardstick or tape measure to do some testing with /examples/motors/drive_input_speed.py
+# DONE: 2. Get a yardstick or tape measure to do some testing with /examples/motors/drive_input_speed.py
 #   Have your whole team work this activity together.
 #   For your first test run drive_input_speed (via python drive_input_speed from that folder using SSH).
 #   Enter these values for your first test and record the distance below as XXX for 100.
@@ -39,7 +39,7 @@ Authors: David Fisher and PUT_YOUR_NAME_HERE.
 #     700 degrees / second  -->  traveled 39.5 inches  -->  7.9 inches / second
 #     800 degrees / second  -->  traveled 45.4 inches  -->  9.08 inches / second
 #     900 degrees / second  -->  traveled 46.1 inches  -->  9.22 inches / second (probably no faster than 800)
-# 
+#
 # TODO: 3. Make an equation
 #   Derive from that information a way to convert a given degrees per second speed into an inches / second speed.
 #     If you plotted the data with degrees / second on the x axis and inches per second on the y axis you would find the
@@ -57,6 +57,9 @@ Authors: David Fisher and PUT_YOUR_NAME_HERE.
 #
 #   Note: To repeat again, in later modules you will learn different (better) ways to travel a given distance using
 #     motor encoders, so just make a simple rough approximation here, since later we'll do it better in a different way.
+
+#    Our equation: speed (in/sec) = 0.01165 * speed (deg/sec)
+
 #
 # TODO: 3. Copy the content of the /examples/motors/drive_input_speed.py program and place it below these comments.
 #   Change the initial print and speak commands to reflect this module, like this...
