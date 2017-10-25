@@ -88,11 +88,15 @@ def main():
 
     time_s = 1  # Any value other than 0.
     while time_s != 0:
-        left_sp = int(input("Enter a speed for the left motor (0 to 900 dps): "))
-        right_sp = int(input("Enter a speed for the right motor (0 to 900 dps): "))
-        time_s = int(input("Enter a time to drive (seconds): "))
-        left_motor.run_forever(speed_sp=left_sp)
-        right_motor.run_forever(speed_sp=right_sp)
+        speed = int(input("Enter a speed for the motor (0 to 900 dps): "))
+        #right_sp = int(input("Enter a speed for the right motor (0 to 900 dps): "))
+        #time_s = int(input("Enter a time to drive (seconds): "))
+        dist_in = int(input("Distance to travel(inches): "))
+        time.s =
+        left_motor.run_forever(speed_sp=speed)
+        right_motor.run_forever(speed_sp=speed)
+
+
         time.sleep(time_s)
         left_motor.stop()
         right_motor.stop(stop_action="brake")
@@ -109,7 +113,7 @@ main()
 
 
 
-# TODO: 4. Change the input questions from:
+# DONE: 4. Change the input questions from:
 #   Enter a speed for the left motor (0 to 900 dps):
 #   Enter a speed for the right motor (0 to 900 dps):
 #   Enter a time to drive (seconds):
