@@ -93,7 +93,7 @@ def main():
         #right_sp = int(input("Enter a speed for the right motor (0 to 900 dps): "))
         #time_s = int(input("Enter a time to drive (seconds): "))
         dist_in = int(input("Distance to travel(inches): "))
-        time.s =
+        time.s = dist_in / (0.01165 * speed)
         left_motor.run_forever(speed_sp=speed)
         right_motor.run_forever(speed_sp=speed)
 
