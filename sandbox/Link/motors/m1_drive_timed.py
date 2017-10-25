@@ -59,6 +59,7 @@ Authors: David Fisher and Olivia Penry.
 #     motor encoders, so just make a simple rough approximation here, since later we'll do it better in a different way.
 
 #    Our equation: speed (in/sec) = 0.01165 * speed (deg/sec)
+#    Time(seconds) = Distance (input) / (0.01165 * speed (deg/sec))
 
 #
 # DONE: 3. Copy the content of the /examples/motors/drive_input_speed.py program and place it below these comments.
