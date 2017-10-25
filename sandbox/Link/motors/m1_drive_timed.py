@@ -39,7 +39,7 @@ Authors: David Fisher and PUT_YOUR_NAME_HERE.
 #     700 degrees / second  -->  traveled 39.5 inches  -->  7.9 inches / second
 #     800 degrees / second  -->  traveled 45.4 inches  -->  9.08 inches / second
 #     900 degrees / second  -->  traveled 46.1 inches  -->  9.22 inches / second (probably no faster than 800)
-#
+# 
 # TODO: 3. Make an equation
 #   Derive from that information a way to convert a given degrees per second speed into an inches / second speed.
 #     If you plotted the data with degrees / second on the x axis and inches per second on the y axis you would find the
