@@ -29,16 +29,16 @@ Authors: David Fisher and PUT_YOUR_NAME_HERE.
 #
 #  Record your calculated speed conversions here:
 #   Tests @ 10 seconds:
-#     100 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
-#     200 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
-#     300 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
-#     400 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
+#     100 degrees / second  -->  traveled 14 inches  -->  1.4 inches / second
+#     200 degrees / second  -->  traveled 24.75 inches  -->  2.475 inches / second
+#     300 degrees / second  -->  traveled 34.6 inches  -->  3.46 inches / second
+#     400 degrees / second  -->  traveled 45.25 inches  -->  4.525 inches / second
 #   Tests @ 5 seconds:
-#     500 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
-#     600 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
-#     700 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
-#     800 degrees / second  -->  traveled XXX inches  -->  YYY inches / second
-#     900 degrees / second  -->  traveled XXX inches  -->  YYY inches / second (probably no faster than 800)
+#     500 degrees / second  -->  traveled 28.5 inches  -->  5.7 inches / second
+#     600 degrees / second  -->  traveled 34 inches  -->  6.8 inches / second
+#     700 degrees / second  -->  traveled 39.5 inches  -->  7.9 inches / second
+#     800 degrees / second  -->  traveled 45.4 inches  -->  9.08 inches / second
+#     900 degrees / second  -->  traveled 46.1 inches  -->  9.22 inches / second (probably no faster than 800)
 #
 # TODO: 3. Make an equation
 #   Derive from that information a way to convert a given degrees per second speed into an inches / second speed.
