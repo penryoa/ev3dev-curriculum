@@ -16,9 +16,9 @@ import time
 
 def main():
     print("--------------------------------------------")
-    print("  Drive using input")
+    print("  Drive using encoders")
     print("--------------------------------------------")
-    ev3.Sound.speak("Drive using input").wait()
+    ev3.Sound.speak("Drive using encoders").wait()
 
     # Connect two large motors on output ports B and C
     left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
@@ -44,11 +44,12 @@ def main():
         time.sleep(time_s)
         left_motor.stop()
         right_motor.stop(stop_action="brake")
+        ev3.Sound.beep().wait()
 
     print("Goodbye!")
     ev3.Sound.speak("Goodbye").wait()
 
-# TODO: 3. Add a beep after the drive motors stop (see code below).  Test your code to hear the beep AFTER movement.
+# DONE: 3. Add a beep after the drive motors stop (see code below).  Test your code to hear the beep AFTER movement.
 #   ev3.Sound.beep().wait()
 
 # TODO: 4. Instead of using the run_forever, time.sleep, stop pattern switch to using the run_to_rel_pos command.
