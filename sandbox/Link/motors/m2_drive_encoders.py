@@ -39,8 +39,8 @@ def main():
         degrees_per_inch = 90
         motor_turns_needed_in_degrees = dist_in * degrees_per_inch
 
-        left_motor.run_to_rel_pos(position_sp = motor_turns_needed_in_degrees, speed_sp=speed)
-        right_motor.run_to_rel_pos(position_sp = motor_turns_needed_in_degrees, speed_sp=speed)
+        left_motor.run_to_rel_pos(position_sp = motor_turns_needed_in_degrees, speed_sp=speed, stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+        right_motor.run_to_rel_pos(position_sp = motor_turns_needed_in_degrees, speed_sp=speed, stop_action = ev3.Motor.STOP_ACTION_BRAKE)
 
         left_motor.wait_while(ev3.Motor.STATE_RUNNING)
         right_motor.wait_while(ev3.Motor.STATE_RUNNING)
