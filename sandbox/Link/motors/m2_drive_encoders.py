@@ -48,6 +48,8 @@ def main():
 
     print("Goodbye!")
     ev3.Sound.speak("Goodbye").wait()
+    
+main()
 
 # DONE: 3. Add a beep after the drive motors stop (see code below).  Test your code to hear the beep AFTER movement.
 #   ev3.Sound.beep().wait()
