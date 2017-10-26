@@ -44,10 +44,6 @@ class Snatch3r(object):
 
             self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
             self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
-            ev3.Sound.beep().wait()
-
-        print("Goodbye!")
-        ev3.Sound.speak("Goodbye").wait()
 
 
     # TODO: Implement the Snatch3r class as needed when working the sandox exercises
