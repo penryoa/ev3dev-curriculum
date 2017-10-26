@@ -18,11 +18,7 @@ import ev3dev.ev3 as ev3
 import robot_controller as robo
 
 def main():
-    # --------------------------------------------------------------
-    # We have already implemented this module for you.
-    # There are no TODOs in the code.  Do NOT modify it.
-    # You are not allowed to make any changes to this code.
-    # --------------------------------------------------------------
+
     print("--------------------------------------------")
     print(" Turn degrees")
     print("--------------------------------------------")
@@ -33,20 +29,17 @@ def main():
         speed_deg_per_second = int(input("Speed (0 to 900 dps): "))
         if speed_deg_per_second == 0:
             break
-        inches_target = int(input("Distance (inches): "))
-        if inches_target == 0:
+        degrees_to_turn = int(input("Degrees to turn: "))
+        if degrees_to_turn == 0:
             break
 
-        robot.drive_inches(inches_target, speed_deg_per_second)
+        robot.turn_degrees(degrees_to_turn, speed_deg_per_second)
         ev3.Sound.beep().wait()  # Fun little beep
 
     print("Goodbye!")
     ev3.Sound.speak("Goodbye").wait()
 
 
-# ----------------------------------------------------------------------
-# Calls  main  to start the ball rolling.
-# ----------------------------------------------------------------------
 main()
 
 # DONE: 3. Create a method in your library called turn_degrees that receives the degrees_to_turn and turn_speed_sp

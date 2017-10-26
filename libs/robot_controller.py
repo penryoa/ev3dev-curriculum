@@ -48,7 +48,7 @@ class Snatch3r(object):
             return
         if turn_speed_sp == 0:
             return
-        
+
         if degrees_to_turn > 0:
             self.right_motor.run_to_rel_pos(position_sp = degrees_to_turn,
                                             speed_sp = turn_speed_sp,
