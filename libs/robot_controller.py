@@ -26,8 +26,7 @@ class Snatch3r(object):
         assert self.right_motor.connected
 
     def drive_inches(self, inches_target, speed_deg_per_second):
-        time_s = 1  # Any value other than 0.
-        while time_s != 0:
+        while True:
             speed = speed_deg_per_second
             if speed == 0:
                 break
