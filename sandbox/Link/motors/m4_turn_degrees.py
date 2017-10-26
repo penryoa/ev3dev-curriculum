@@ -3,7 +3,7 @@ This module lets you extend what you have learned about driving and extend it to
 
 Much like you have a drive_inches command in your library, you will now make a turn_degrees method.
 
-Authors: David Fisher and Maroon5.
+Authors: David Fisher and Link.
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 # DONE: 2. Copy the contents of m3_drive_inches_via_library.py and paste that text into this file below these comments.
@@ -49,7 +49,7 @@ def main():
 # ----------------------------------------------------------------------
 main()
 
-# TODO: 3. Create a method in your library called turn_degrees that receives the degrees_to_turn and turn_speed_sp
+# DONE: 3. Create a method in your library called turn_degrees that receives the degrees_to_turn and turn_speed_sp
 #   To help you get started here is a potential method signature line that will be in your library.
 #
 #   def turn_degrees(self, degrees_to_turn, turn_speed_sp):

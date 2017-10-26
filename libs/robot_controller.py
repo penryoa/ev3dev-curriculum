@@ -44,6 +44,26 @@ class Snatch3r(object):
         self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
 
     def turn_degrees(self, degrees_to_turn, turn_speed_sp):
+        if degrees_to_turn == 0:
+            return
+        if turn_speed_sp == 0:
+            return
+        
+        if degrees_to_turn > 0:
+            self.right_motor.run_to_rel_pos(position_sp = degrees_to_turn,
+                                            speed_sp = turn_speed_sp,
+                                            stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+            self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
+
+        if degrees_to_turn < 0:
+            self.left_motor.run_to_rel_pos(position_sp = degrees_to_turn,
+                                            speed_sp = turn_speed_sp,
+                                            stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+            self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
+
+        ev3.Sound.beep().wait()
+        ev3.Sound.speak("Operation World Denomination was successful.").wait()
+
 
 
     # TODO: Implement the Snatch3r class as needed when working the sandox exercises
