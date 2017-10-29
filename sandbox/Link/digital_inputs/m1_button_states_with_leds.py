@@ -55,14 +55,19 @@ def main():
     while True:
         if btn.up:
             print('up')
-            ev3.Leds.set_color(ev3.Leds.BLACK)
+            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
+            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
         if btn.left:
             print('left')
-            ev3.Leds.set_color(ev3.Leds.GREEN)
+            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
         if btn.right:
             print('right')
-            ev3.Leds.set_color(ev3.Leds.RED)
-            
+            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
+
+        time.sleep(1)
+
         # TODO: 3. Implement the left, right, and up buttons as follows:
         #    When the up button is being pressed:
         #      -- print the word "up"
