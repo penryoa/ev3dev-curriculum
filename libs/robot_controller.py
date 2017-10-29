@@ -58,6 +58,7 @@ class Snatch3r(object):
             #                                 speed_sp = turn_speed_sp,
             #                                 stop_action = ev3.Motor.STOP_ACTION_BRAKE)
             self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
+            self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
 
         if degrees_to_turn < 0:
 
@@ -68,10 +69,11 @@ class Snatch3r(object):
             #                                 speed_sp = turn_speed_sp,
             #                                 stop_action = ev3.Motor.STOP_ACTION_BRAKE)
             self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
+            self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
 
 
         ev3.Sound.beep().wait()
-        ev3.Sound.speak("Operation World Denomination was successful.").wait()
+        ev3.Sound.speak("Operation World Domination was successful.").wait()
 
 
 
