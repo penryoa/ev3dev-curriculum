@@ -72,7 +72,7 @@ def main():
             current_color_index = (current_color_index + 1) % len(led_colors)
 
 
-        time.sleep(0.1)
+        time.sleep(0.01)
 
         # DONE: 3. Implement the left, right, and up buttons as follows:
         #    When the up button is being pressed:
