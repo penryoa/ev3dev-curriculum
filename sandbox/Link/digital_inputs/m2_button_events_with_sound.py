@@ -52,7 +52,7 @@ def main():
     # Here is one for free...
     #  btn.on_up = handle_up_button
 
-    btn.on_up = handle_up_button()
+    btn.on_up = handle_up_button
     btn.on_down = handle_down_button
     btn.on_left = handle_left_button
     btn.on_right = handle_up_button
@@ -95,6 +95,10 @@ def handle_up_button(button_state):
         print("Up button is pressed")
     else:
         print("Up button was released")
+
+def handle_down_button(button_state):
+    if button_state:
+        
 
 
 # TODO: 6. Implement the handle_shutdown function.
