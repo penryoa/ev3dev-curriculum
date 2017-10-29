@@ -67,7 +67,6 @@ class Snatch3r(object):
 
 
         ev3.Sound.beep().wait()
-        return
 
 
 
