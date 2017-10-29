@@ -52,6 +52,13 @@ def main():
     # Here is one for free...
     #  btn.on_up = handle_up_button
 
+    btn.on_up = handle_up_button()
+    btn.on_down = handle_down_button
+    btn.on_left = handle_left_button
+    btn.on_right = handle_up_button
+
+
+
     # TODO: 5. Note #4 is lower (this is TO DO #5 which you should do after #4).
     # Add a lambda callback for on_backspace.  The syntax of lambda is:
     #   btn.on_backspace = lamdba predefined_inputs: function_name(parameters)
@@ -102,6 +109,10 @@ def handle_up_button(button_state):
 # You can also change the print message that said:
 #    "Press Ctrl C on your keyboard to exit this program (the Back button is not wired up to exit)"
 # to instead say "Press Back to exit this program."
+
+def handle_shutdown(button_state, dc):
+
+
 
 
 # TODO: 7. Call over a TA or instructor to sign your team's checkoff sheet and do a code review.
