@@ -67,10 +67,9 @@ def main():
             ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
         if btn.down:
             print('down')
-            for k in range(len(led_colors)):
-                ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.led_colors[k])
-                ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.led_colors[k])
-                current_color_index = (current_color_index + 1) % len(current_color_index[k])
+            ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.led_colors[current_color_index])
+            ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.led_colors[current_color_index])
+            current_color_index = (current_color_index + 1) % len(current_color_index[current_color_index])
 
 
         time.sleep(1)
