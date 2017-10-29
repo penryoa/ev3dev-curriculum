@@ -65,10 +65,17 @@ def main():
             print('right')
             ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
             ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+        if btn.down:
+            print('down')
+            for k in range(len(led_colors)):
+                ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.led_colors[k])
+                ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.led_colors[k])
+                current_color_index = (current_color_index + 1) % len(current_color_index[k])
+
 
         time.sleep(1)
 
-        # TODO: 3. Implement the left, right, and up buttons as follows:
+        # DONE: 3. Implement the left, right, and up buttons as follows:
         #    When the up button is being pressed:
         #      -- print the word "up"
         #      -- turn off all LEDs
