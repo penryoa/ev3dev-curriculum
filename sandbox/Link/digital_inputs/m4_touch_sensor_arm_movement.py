@@ -72,17 +72,16 @@ def arm_calibration(arm_motor, touch_sensor):
     #   Set the arm encoder position to 0 (the last line below is correct to do that, it's new so no bug there)
 
     # Code that attempts to do this task but has MANY bugs (nearly 1 on every line).  Fix them!
+    arm_motor.run_forever(speed_sp=MAX_SPEED)
     while True:
-        if touch_sensor.is_pressed is False:
-            arm_motor.run_forever(speed_sp=MAX_SPEED)
-        if touch_sensor.is_pressed is True:
+        if touch_sensor.is_pressed:
             break
         time.sleep(0.01)
-    arm_motor.stop(stop_action = arm_motor.STOP_ACTION_BRAKE)
+    arm_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
     ev3.Sound.beep()
-    arm_revolutions_for_full_range = 14.2
+    arm_revolutions_for_full_range = 14.2 * 360
     arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range)
-    arm_motor.wait_while(arm_motor.STATE_RUNNING)
+    arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
     ev3.Sound.beep()
     arm_motor.position = 0  # Calibrate the down position as 0 (this line is correct as is).
 
