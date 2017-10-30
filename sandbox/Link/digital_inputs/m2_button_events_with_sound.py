@@ -133,7 +133,7 @@ def handle_right_button(button_state):
 #    "Press Ctrl C on your keyboard to exit this program (the Back button is not wired up to exit)"
 # to instead say "Press Back to exit this program."
 
-def handle_shutdown(button_state, dc):
+#def handle_shutdown(button_state, dc):
 
 
 
