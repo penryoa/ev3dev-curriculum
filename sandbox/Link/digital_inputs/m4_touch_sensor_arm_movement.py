@@ -76,8 +76,7 @@ def arm_calibration(arm_motor, touch_sensor):
     arm_motor.run_forever(speed_sp=MAX_SPEED)
     while True:
         if touch_sensor.is_pressed:
-            break
-        time.sleep(0.01)
+            time.sleep(0.01)
     arm_motor.stop(stop_action="coast")
 
     arm_revolutions_for_full_range = 14.2
