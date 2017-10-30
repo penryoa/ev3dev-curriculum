@@ -51,8 +51,8 @@ class Snatch3r(object):
         if turn_speed_sp == 0:
             return
 
-        self.left_motor.run_to_rel_pos(position_sp = 11 * degrees_to_turn, speed_sp = turn_speed_sp, stop_action = ev3.Motor.STOP_ACTION_BRAKE)
-        self.right_motor.run_to_rel_pos(position_sp = -11 * degrees_to_turn, speed_sp = -turn_speed_sp, stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+        self.left_motor.run_to_rel_pos(position_sp = 5 * degrees_to_turn, speed_sp = turn_speed_sp, stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+        self.right_motor.run_to_rel_pos(position_sp = -5 * degrees_to_turn, speed_sp = -turn_speed_sp, stop_action = ev3.Motor.STOP_ACTION_BRAKE)
         self.left_motor.wait_while(ev3.Motor.STATE_RUNNING)
         self.right_motor.wait_while(ev3.Motor.STATE_RUNNING)
 
