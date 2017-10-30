@@ -59,7 +59,7 @@ def main():
 
 
 
-    # TODO: 5. Note #4 is lower (this is TO DO #5 which you should do after #4).
+    # DONE: 5. Note #4 is lower (this is TO DO #5 which you should do after #4).
     # Add a lambda callback for on_backspace.  The syntax of lambda is:
     #   btn.on_backspace = lamdba predefined_inputs: function_name(parameters)
     # You will need to change the predefined_inputs, function_name, and parameters from that syntax template.
@@ -69,7 +69,7 @@ def main():
     while dc.running:
         btn.process()  # This command is VERY important when using button callbacks!
         time.sleep(0.01)  # A short delay is important to allow other things to happen.
-
+        btn.on_backspace = lambda state:handle_shutdown(state,dc)
     print("Goodbye!")
     ev3.Sound.speak("Goodbye").wait()
 
@@ -78,7 +78,7 @@ def main():
 # Button event callback functions
 # ----------------------------------------------------------------------
 
-# TODO: 4. Implement the up, down, left, and right callback functions as follows:
+# DONE: 4. Implement the up, down, left, and right callback functions as follows:
 #   handle_up_button - when state is True (a press), call play_song_by_individual_tones()
 #     You can leave the print messages below, just add the new requirement stated above.
 #   handle_down_button - when state is True (a press), call play_song_by_notes_list()
@@ -120,7 +120,7 @@ def handle_right_button(button_state):
 
 
 
-# TODO: 6. Implement the handle_shutdown function.
+# DONE: 6. Implement the handle_shutdown function.
 #   Function signature should be:
 #       def handle_shutdown(button_state, dc):
 #   When the button is pressed (state is True)
@@ -133,7 +133,11 @@ def handle_right_button(button_state):
 #    "Press Ctrl C on your keyboard to exit this program (the Back button is not wired up to exit)"
 # to instead say "Press Back to exit this program."
 
-#def handle_shutdown(button_state, dc):
+def handle_shutdown(button_state, dc):
+    while True:
+        if button_state:
+            print('back')
+            dc.running = False
 
 
 
