@@ -36,7 +36,7 @@ def main():
     # Beep is a simple and useful sound.
     ev3.Sound.beep().wait()
     ev3.Sound.beep().wait()
-    print('Press Ctrl C on your keyboard to exit this program (the Back button is not wired up to exit)')
+    print('Press Back to exit this program.')
 
     # Making a simple class is the best way to pass around data between different events.
     dc = DataContainer()
@@ -134,11 +134,9 @@ def handle_right_button(button_state):
 # to instead say "Press Back to exit this program."
 
 def handle_shutdown(button_state, dc):
-    while True:
-        if button_state:
-            print('back')
-            dc.running = False
-
+    if button_state:
+        print('back')
+        dc.running = False
 
 
 
