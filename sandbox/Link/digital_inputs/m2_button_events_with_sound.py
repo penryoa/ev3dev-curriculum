@@ -55,7 +55,7 @@ def main():
     btn.on_up =  handle_up_button
     btn.on_down = handle_down_button
     btn.on_left = handle_left_button
-    btn.on_right = handle_up_button
+    btn.on_right = handle_right_button
 
 
 
