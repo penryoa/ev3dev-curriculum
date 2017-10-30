@@ -8,7 +8,7 @@ Authors: David Fisher and Link.
 
 import ev3dev.ev3 as ev3
 import time
- 
+
 MAX_SPEED = 900
 
 # DONE: 2. Have someone on your team run this program as is on the EV3 and make sure everyone understands the code.
@@ -73,8 +73,10 @@ def arm_calibration(arm_motor, touch_sensor):
     #   Set the arm encoder position to 0 (the last line below is correct to do that, it's new so no bug there)
 
     # Code that attempts to do this task but has MANY bugs (nearly 1 on every line).  Fix them!
-    arm_motor.run_forever(speed_sp=100)
-    while not touch_sensor:
+    arm_motor.run_forever(speed_sp=MAX_SPEED)
+    while True:
+        if touch_sensor.is_pressed:
+            break
         time.sleep(0.01)
     arm_motor.stop(stop_action="coast")
 
