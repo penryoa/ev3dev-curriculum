@@ -187,20 +187,20 @@ def blue_up_1(button_state, robot):
 
     if button_state:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
-        ev3.LargeMotor(ev3.OUTPUT_B).run_forever(speed_sp=600)
+        ev3.LargeMotor(ev3.OUTPUT_C).run_forever(speed_sp=600)
     else:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        ev3.LargeMotor(ev3.OUTPUT_B).stop_action = ev3.Motor.STOP_ACTION_BRAKE
+        ev3.LargeMotor(ev3.OUTPUT_C).stop_action = ev3.Motor.STOP_ACTION_BRAKE
 
 
 def blue_down_1(button_state, robot):
 
     if button_state:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
-        ev3.LargeMotor(ev3.OUTPUT_B).run_forever(speed_sp=-600)
+        ev3.LargeMotor(ev3.OUTPUT_C).run_forever(speed_sp=-600)
     else:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        ev3.LargeMotor(ev3.OUTPUT_B).stop_action = ev3.Motor.STOP_ACTION_BRAKE
+        ev3.LargeMotor(ev3.OUTPUT_C).stop_action = ev3.Motor.STOP_ACTION_BRAKE
 
 
 # ----------------------------------------------------------------------
