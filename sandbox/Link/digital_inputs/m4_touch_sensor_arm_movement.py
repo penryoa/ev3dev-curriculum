@@ -116,24 +116,17 @@ def arm_down(arm_motor):
     Type hints:
       :type arm_motor: ev3.MediumMotor
     """
-    # TODO: 5. Implement the arm up movement by fixing the code below
+    # DONE: 5. Implement the arm up movement by fixing the code below
     # Move the arm to the absolute position_sp of 0 at max speed.
     # Wait until the move completes
     # Make a beep sound
 
-    # Code that attempts to do this task but has bugs.  Fix them.
-    # arm_motor.run_forever(position_sp = 0,speed_sp=MAX_SPEED)
-    # while True:
-    #     if touch_sensor.is_pressed:
-    #         break
-    #     time.sleep(0.01)
-    # arm_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
-    # ev3.Sound.beep()
+
 
     arm_revolutions_for_full_range = 14.2 * 360
     arm_motor.run_to_abs_pos(position_sp=-arm_revolutions_for_full_range)
-    arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
-    
+    #arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
+
     ev3.Sound.beep()
 
     # TODO: 6. After you fix the bugs in the three arm movement commands demo your code to a TA or instructor.
