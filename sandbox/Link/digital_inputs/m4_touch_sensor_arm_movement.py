@@ -125,6 +125,7 @@ def arm_down(arm_motor):
 
     arm_revolutions_for_full_range = 14.2 * 360
     arm_motor.run_to_abs_pos(position_sp=-arm_revolutions_for_full_range)
+    arm.motor.wait_while(ev3.Motor.STATE_RUNNING)
     arm_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
     ev3.Sound.beep()
 
