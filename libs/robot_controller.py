@@ -98,6 +98,16 @@ class Snatch3r(object):
         self.arm_motor.position = 0
 
 
+    def shutdown(self):
+        while True:
+            if ev3.Button.backspace:
+                print('Goodbye.')
+                break
+        ev3.Leds.set_color(ev3.Leds.LEFT,ev3.Leds.GREEN)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+        ev3.SOund.speak("Goodbye").wait()
+
+
 
         # TODO: Implement the Snatch3r class as needed when working the sandox exercises
     # (and delete these comments)
