@@ -155,52 +155,49 @@ def handle_shutdown(button_state, dc):
     if button_state:
         dc.running = False
 
+
+
+left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
+
+
 def red_up_1(button_state,robot):
 
     if button_state:
         ev3.Leds.set_color(ev3.Leds.LEFT,ev3.Leds.GREEN)
-        ev3.LargeMotor(ev3.OUTPUT_B).run_forever(speed_sp = 600)
+        left_motor.run_forever(speed_sp = 600)
     else:
         ev3.Leds.set_color(ev3.Leds.LEFT,ev3.Leds.BLACK)
-        ev3.LargeMotor(ev3.OUTPUT_B).stop_action = ev3.Motor.STOP_ACTION_BRAKE
+        left_motor.stop()
 
 def red_down_1(button_state, robot):
 
     if button_state:
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
-        ev3.LargeMotor(ev3.OUTPUT_B).run_forever(speed_sp=-600)
+        left_motor.run_forever(speed_sp=-600)
     else:
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
-        ev3.LargeMotor(ev3.OUTPUT_B).stop_action = ev3.Motor.STOP_ACTION_BRAKE
-
-def red_down_1(button_state, robot):
-
-    if button_state:
-        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
-        ev3.LargeMotor(ev3.OUTPUT_B).run_forever(speed_sp=-600)
-    else:
-        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.BLACK)
-        ev3.LargeMotor(ev3.OUTPUT_B).stop_action = ev3.Motor.STOP_ACTION_BRAKE
+        left_motor.stop()
 
 
 def blue_up_1(button_state, robot):
 
     if button_state:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
-        ev3.LargeMotor(ev3.OUTPUT_C).run_forever(speed_sp=600)
+        right_motor.run_forever(speed_sp=600)
     else:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        ev3.LargeMotor(ev3.OUTPUT_C).stop_action = ev3.Motor.STOP_ACTION_BRAKE
+        right_motor.stop()
 
 
 def blue_down_1(button_state, robot):
 
     if button_state:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
-        ev3.LargeMotor(ev3.OUTPUT_C).run_forever(speed_sp=-600)
+        right_motor.run_forever(speed_sp=-600)
     else:
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.BLACK)
-        ev3.LargeMotor(ev3.OUTPUT_C).stop_action = ev3.Motor.STOP_ACTION_BRAKE
+        right_motor.stop()
 
 
 # ----------------------------------------------------------------------
