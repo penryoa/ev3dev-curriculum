@@ -123,10 +123,16 @@ def arm_down(arm_motor):
 
 
 
+    # arm_revolutions_for_full_range = 14.2 * 360
+    # arm_motor.run_to_abs_pos(position_sp=-arm_revolutions_for_full_range,stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+    # arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
+    # ev3.Sound.beep()
+
     arm_revolutions_for_full_range = 14.2 * 360
-    arm_motor.run_to_abs_pos(position_sp=-arm_revolutions_for_full_range,stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+    arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range)
     arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
     ev3.Sound.beep()
+    arm_motor.position = 0
 
     # TODO: 6. After you fix the bugs in the three arm movement commands demo your code to a TA or instructor.
     #
