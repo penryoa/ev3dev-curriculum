@@ -63,15 +63,15 @@ def main():
     # Remote control channel 2 is for moving the arm up and down (all of these functions already exist below).
 
     rc1 = ev3.RemoteControl(channel=2)
-    rc1.on_red_up = lambda state: red_up_1(state)
-    rc1.on_red_down = lambda state: red_down_1(state)
-    rc1.on_blue_up = lambda state: blue_up_1(state)
-    rc1.on_blue_down = lambda state: blue_down_1(state)
+    rc1.on_red_up = lambda state: red_up_1(state, robot)
+    rc1.on_red_down = lambda state: red_down_1(state, robot)
+    rc1.on_blue_up = lambda state: blue_up_1(state, robot)
+    rc1.on_blue_down = lambda state: blue_down_1(state, robot)
 
     rc2 = ev3.RemoteControl(channel=3)
-    rc2.on_red_up = lambda state: handle_arm_up_button(state)
-    rc2.on_red_down = lambda state: handle_arm_down_button(state)
-    rc2.on_blue_up = lambda state:handle_calibrate_button(state)
+    rc2.on_red_up = lambda state: handle_arm_up_button(state, robot)
+    rc2.on_red_down = lambda state: handle_arm_down_button(state, robot)
+    rc2.on_blue_up = lambda state:handle_calibrate_button(state, robot)
 
 
 
