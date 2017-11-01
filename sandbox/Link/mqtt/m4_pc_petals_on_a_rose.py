@@ -43,7 +43,7 @@ def main():
     # connect_to_ev3
     my_delegate = myDelegate()
     mqtt_client = com.MqttClient(my_delegate)
-    mqtt_client.connect_to_ev3(lego_robot_number=99)
+    mqtt_client.connect_to_ev3(lego_robot_number=11)
 
     root = tkinter.Tk()
     root.title("Petals on a Rose")
