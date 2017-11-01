@@ -113,7 +113,9 @@ def main():
 #
 # Observations you should make, you did basically this same program using the IR Remote, but your computer can be a
 # remote control that can do A LOT more than an IR Remote.  We are just doing the basics here.
-
+def go_forward(mqtt_client):
+    print("go_forward")
+    mqtt_client.send_message("drive_inches")
 
 # Arm command callbacks
 def send_up(mqtt_client):
