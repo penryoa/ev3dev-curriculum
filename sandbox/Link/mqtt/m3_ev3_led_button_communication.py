@@ -73,6 +73,7 @@ class MyDelegate(object):
         self.running = True
 
     def set_led(self, led_side_string, led_color_string):
+
         print("Received: {} {}".format(led_side_string, led_color_string))
         led_side = None
         if led_side_string == "left":
@@ -108,7 +109,7 @@ def main():
     # Note: on EV3 you call connect_to_pc, but in the PC code it will call connect_to_ev3
     my_delegate = MyDelegate()
     mqtt_client = com.MqttClient(my_delegate)
-    mqtt_client.connect_to_pc()
+    mqtt_client.connect_to_pc(lego_robot_number=11)
 
     # Buttons on EV3 (these obviously assume TO DO: 3. is done)
     btn = ev3.Button()
