@@ -121,9 +121,13 @@ class Snatch3r(object):
         self.left_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
         self.right_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
 
-    def go_forward(self, left_speed_entry, right_speed_entry):
-        self.left_motor.run_forever(speed_sp = left_speed_entry)
-        self.right_motor.run_forever(speed_sp = right_speed_entry)
+    def go_forward(self, left_speed, right_speed):
+        self.left_motor.run_forever(speed_sp = left_speed)
+        self.right_motor.run_forever(speed_sp = right_speed)
+
+    def go_backward(self, left_speed, right_speed):
+        self.left_motor.run_forever(speed_sp=-left_speed)
+        self.right_motor.run_forever(speed_sp=-right_speed)
 
 
         # TODO: Implement the Snatch3r class as needed when working the sandox exercises

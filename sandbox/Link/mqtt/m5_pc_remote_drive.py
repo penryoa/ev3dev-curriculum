@@ -83,6 +83,8 @@ def main():
 
     back_button = ttk.Button(main_frame, text="Back")
     back_button.grid(row=4, column=1)
+    back_button['command'] = lambda: go_backward(mqtt_client, left_speed_entry, right_speed_entry)
+    root.bind('<Down>', lambda event: go_backward(mqtt_client, left_speed_entry, right_speed_entry))
     # back_button and '<Down>' key
 
     up_button = ttk.Button(main_frame, text="Up")
@@ -124,10 +126,10 @@ def stop(mqtt_client):
     print("stop")
     mqtt_client.send_message("stop")
 
-# def go_backward(mqtt_client):
-#     print("go_backward")
-#     mqtt_client.send_message("")
-#
+def go_backward(mqtt_client, left_speed_entry, right_speed_entry):
+    print("go_backward")
+    mqtt_client.send_message("go_backward", [int(left_speed_entry.get()), int(right_speed_entry.get())])
+
 # def turn_left(mqtt_client):
 #     print("turn_left")
 #     mqtt_client.send_message("")
