@@ -115,7 +115,11 @@ def main():
 # remote control that can do A LOT more than an IR Remote.  We are just doing the basics here.
 def go_forward(mqtt_client):
     print("go_forward")
-    mqtt_client.send_message("")
+    mqtt_client.send_message("go_forward")
+
+def stop(mqtt_client):
+    print("stop")
+    mqtt_client.send_message("stop")
 
 def go_backward(mqtt_client):
     print("go_backward")

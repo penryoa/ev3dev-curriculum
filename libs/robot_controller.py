@@ -117,6 +117,14 @@ class Snatch3r(object):
         while self.running:
             time.sleep(0.1)  # Do nothing (except receive MQTT messages) until an MQTT message calls shutdown.
 
+    def stop(self):
+        self.left_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+        self.right_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+
+    def go_forward(self, left_speed_entry, right_speed_entry):
+        self.left_motor.run_forever(speed_sp = left_speed_entry)
+        self.right_motor.run_forever(speed_sp = right_speed_entry)
+
 
         # TODO: Implement the Snatch3r class as needed when working the sandox exercises
     # (and delete these comments)
