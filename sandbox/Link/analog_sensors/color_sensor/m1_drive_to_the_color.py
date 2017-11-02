@@ -95,11 +95,11 @@ def drive_to_color(button_state, robot, color_to_seek):
         #   self.color_sensor = ev3.ColorSensor()
         #   assert self.color_sensor
         # Then here you can use a command like robot.color_sensor.color to check the value
-        ev3.LargeMotor.run_forever()
+        ev3.Motor.run_forever()
         while True:
             if robot.color_sensor.color == color_to_seek:
                 break
-        ev3.LargeMotor.stop_action = ev3.LargeMotor.STOP_ACTION_BRAKE
+        ev3.Motor.stop_action = ev3.Motor.STOP_ACTION_BRAKE
 
 
 
