@@ -63,12 +63,13 @@ def main():
 
     forward_button = ttk.Button(main_frame, text="Forward")
     forward_button.grid(row=2, column=1)
-    forward_button and '<Up>'
     forward_button['command'] = lambda: go_forward(mqtt_client, left_speed_entry, right_speed_entry)
     root.bind('<Up>', lambda event: go_forward(mqtt_client, left_speed_entry, right_speed_entry))
 
     left_button = ttk.Button(main_frame, text="Left")
     left_button.grid(row=3, column=0)
+    left_button['command'] = lambda: turn_left(mqtt_client, right_speed_entry)
+    root.bind('<Left>', lambda event: turn_left(mqtt_client, right_speed_entry)
     # left_button and '<Left>' key
 
     stop_button = ttk.Button(main_frame, text="Stop")
@@ -79,6 +80,8 @@ def main():
 
     right_button = ttk.Button(main_frame, text="Right")
     right_button.grid(row=3, column=2)
+    right_button['command'] = lambda: turn_right(mqtt_client, left_speed_entry)
+    root.bind('<Right>', lambda event: turn_right(mqtt_client, left_speed_entry)
     # right_button and '<Right>' key
 
     back_button = ttk.Button(main_frame, text="Back")
@@ -130,13 +133,13 @@ def go_backward(mqtt_client, left_speed_entry, right_speed_entry):
     print("go_backward")
     mqtt_client.send_message("go_backward", [int(left_speed_entry.get()), int(right_speed_entry.get())])
 
-# def turn_left(mqtt_client):
-#     print("turn_left")
-#     mqtt_client.send_message("")
-#
-# def turn_right(mqtt_client):
-#     print("turn_right")
-#     mqtt_client.send_message("")
+def turn_left(mqtt_client, right_speed_entry):
+    print("turn_left")
+    mqtt_client.send_message("turn_left", [int(right_speed_entry.get())])
+
+def turn_right(mqtt_client, left_speed_entry):
+    print("turn_right")
+    mqtt_client.send_message("turn_right", [int(left_speed_entry.get())])
 
 # Arm command callbacks
 def send_up(mqtt_client):

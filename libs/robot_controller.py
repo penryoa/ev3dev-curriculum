@@ -129,6 +129,11 @@ class Snatch3r(object):
         self.left_motor.run_forever(speed_sp=-left_speed)
         self.right_motor.run_forever(speed_sp=-right_speed)
 
+    def turn_left(self, right_speed):
+        self.right_motor.run_forever(speed_sp=right_speed)
+
+    def turn_right(self, left_speed):
+        self.left_motor.run_forever(speed_sp=left_speed)
 
         # TODO: Implement the Snatch3r class as needed when working the sandox exercises
     # (and delete these comments)
