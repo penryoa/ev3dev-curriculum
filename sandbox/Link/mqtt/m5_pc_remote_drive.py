@@ -63,7 +63,7 @@ def main():
     forward_button = ttk.Button(main_frame, text="Forward")
     forward_button.grid(row=2, column=1)
     forward_button and '<Up>'
-    forward_button['command'] = lambda: some_callbck1(mqtt_client, left_speed_entry, right_speed_entry)
+    forward_button['command'] = lambda: some_callback1(mqtt_client, left_speed_entry, right_speed_entry)
     root.bind('<Up>', lambda event: some_callback1(mqtt_client, left_speed_entry, right_speed_entry))
 
     left_button = ttk.Button(main_frame, text="Left")
@@ -115,7 +115,19 @@ def main():
 # remote control that can do A LOT more than an IR Remote.  We are just doing the basics here.
 def go_forward(mqtt_client):
     print("go_forward")
-    mqtt_client.send_message("drive_inches")
+    mqtt_client.send_message("")
+
+def go_backward(mqtt_client):
+    print("go_backward")
+    mqtt_client.send_message("")
+
+def turn_left(mqtt_client):
+    print("turn_left")
+    mqtt_client.send_message("")
+
+def turn_right(mqtt_client):
+    print("turn_right")
+    mqtt_client.send_message("")
 
 # Arm command callbacks
 def send_up(mqtt_client):
