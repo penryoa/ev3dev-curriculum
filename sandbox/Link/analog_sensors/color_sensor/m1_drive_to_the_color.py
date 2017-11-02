@@ -99,7 +99,8 @@ def drive_to_color(button_state, robot, color_to_seek):
         while True:
             if robot.color_sensor.color == color_to_seek:
                 break
-        ev3.Motor.stop_action = ev3.Motor.STOP_ACTION_BRAKE
+        ev3.Motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+
 
 
 
