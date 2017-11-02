@@ -63,8 +63,8 @@ def main():
     forward_button = ttk.Button(main_frame, text="Forward")
     forward_button.grid(row=2, column=1)
     forward_button and '<Up>'
-    forward_button['command'] = lambda: some_callback1(mqtt_client, left_speed_entry, right_speed_entry)
-    root.bind('<Up>', lambda event: some_callback1(mqtt_client, left_speed_entry, right_speed_entry))
+    forward_button['command'] = lambda: go_forward(mqtt_client, left_speed_entry, right_speed_entry)
+    root.bind('<Up>', lambda event: go_forward(mqtt_client, left_speed_entry, right_speed_entry))
 
     left_button = ttk.Button(main_frame, text="Left")
     left_button.grid(row=3, column=0)
@@ -72,6 +72,8 @@ def main():
 
     stop_button = ttk.Button(main_frame, text="Stop")
     stop_button.grid(row=3, column=1)
+    stop_button['command'] = lambda: stop(mqtt_client)
+    root.bind('<space>', lambda event: stop(mqtt_client))
     # stop_button and '<space>' key (note, does not need left_speed_entry, right_speed_entry)
 
     right_button = ttk.Button(main_frame, text="Right")
@@ -113,7 +115,7 @@ def main():
 #
 # Observations you should make, you did basically this same program using the IR Remote, but your computer can be a
 # remote control that can do A LOT more than an IR Remote.  We are just doing the basics here.
-def go_forward(mqtt_client):
+def go_forward(mqtt_client, left_speed_entry, right_speed_entry):
     print("go_forward")
     mqtt_client.send_message("go_forward")
 
@@ -121,17 +123,17 @@ def stop(mqtt_client):
     print("stop")
     mqtt_client.send_message("stop")
 
-def go_backward(mqtt_client):
-    print("go_backward")
-    mqtt_client.send_message("")
-
-def turn_left(mqtt_client):
-    print("turn_left")
-    mqtt_client.send_message("")
-
-def turn_right(mqtt_client):
-    print("turn_right")
-    mqtt_client.send_message("")
+# def go_backward(mqtt_client):
+#     print("go_backward")
+#     mqtt_client.send_message("")
+#
+# def turn_left(mqtt_client):
+#     print("turn_left")
+#     mqtt_client.send_message("")
+#
+# def turn_right(mqtt_client):
+#     print("turn_right")
+#     mqtt_client.send_message("")
 
 # Arm command callbacks
 def send_up(mqtt_client):
