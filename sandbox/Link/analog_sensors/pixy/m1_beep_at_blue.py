@@ -36,6 +36,14 @@ def main():
         #   assert self.pixy
         # Then here you can use a command like width = robot.pixy.value(3)
 
+        pixy_x = robot.pixy.value(1)
+        pixy_y = robot.pixy.value(2)
+        width = robot.pixy.value(3)
+        height = robot.pixy.value(4)
+        print("(X,Y) = ({},{}) Width = {} Height = {}".format(pixy_x, pixy_y, width, height))
+
+        if width > 0:
+            ev3.Sound.beep()
 
 
         time.sleep(0.1)
