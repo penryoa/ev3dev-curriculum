@@ -29,8 +29,8 @@ def main():
 
     # TODO: 4: After running the code set the default white and black levels to a better initial guess.
     #   Once you have the values hardcoded to resonable numbers here you don't really need the w and b commands below.
-    white_level = 50
-    black_level = 40
+    white_level = 95
+    black_level = 2
     robot = robo.Snatch3r()
 
     while True:
@@ -44,10 +44,14 @@ def main():
             #   assert self.color_sensor
             # Then here you can use a command like robot.color_sensor.reflected_light_intensity
 
+
+
             print("New white level is {}.".format(white_level))
         elif command_to_run == 'b':
             print("Calibrate the black light level")
             # TODO: 3. Read the reflected_light_intensity property of the color sensor and set black_level
+
+           
 
             print("New black level is {}.".format(black_level))
         elif command_to_run == 'f':
