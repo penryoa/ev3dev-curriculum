@@ -142,8 +142,7 @@ class Snatch3r(object):
     def turn_right(self, left_speed):
         self.left_motor.run_forever(speed_sp=left_speed)
 
-    def found_beacon(self):
-
+    def seek_beacon(self):
         forward_speed = 300
         turn_speed = 100
 
