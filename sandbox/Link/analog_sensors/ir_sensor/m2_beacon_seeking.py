@@ -103,17 +103,18 @@ def seek_beacon(robot):
 
             if math.fabs(current_heading) >= 2:
                 if math.fabs(current_heading) < 10:
-                    if current_distance < 0:
+                    if current_heading < 0:
                         left_motor.run_forever(speed_sp=-turn_speed)
                         right_motor.run_forever(speed_sp=turn_speed)
-                    if current_distance > 0:
+                    if current_heading > 0:
                         left_motor.run_forever(speed_sp=turn_speed)
                         right_motor.run_forever(speed_sp=-turn_speed)
+                print("Adjusting heading: ", current_heading)
 
             if math.fabs(current_heading) >= 10:
                 left_motor.stop()
                 right_motor.stop()
-                print("Heading too far off")
+                print("Heading too far off to fix: ", current_heading)
 
 
 
