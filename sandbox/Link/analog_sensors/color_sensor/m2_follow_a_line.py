@@ -93,6 +93,7 @@ def follow_the_line(robot, white_level, black_level):
             right_motor.run_forever(speed_sp=300)
         if robot.touch_sensor.is_pressed:
             break
+        time.sleep(0.01)
     robot.stop()
     ev3.Sound.speak("Done")
 
