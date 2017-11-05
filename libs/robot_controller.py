@@ -146,7 +146,7 @@ class Snatch3r(object):
         forward_speed = 300
         turn_speed = 100
 
-        while not ev3.touch_sensor.is_pressed:
+        while not self.touch_sensor.is_pressed:
             current_heading = self.beacon_seeker.heading  # use the beacon_seeker heading
             current_distance = self.beacon_seeker.distance  # use the beacon_seeker distance
             if current_distance == -128:
