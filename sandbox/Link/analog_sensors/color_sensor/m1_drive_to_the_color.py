@@ -100,9 +100,12 @@ def drive_to_color(button_state, robot, color_to_seek):
 
         left_motor.run_forever(speed_sp=300)
         right_motor.run_forever(speed_sp=300)
-        if robot.color_sensor.color is color_to_seek:
-            left_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
-            right_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+        while True:
+            if robot.color_sensor.color is color_to_seek:
+                break
+            time.sleep(0.01)
+        left_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
+        right_motor.stop(stop_action = ev3.Motor.STOP_ACTION_BRAKE)
 
 
 
