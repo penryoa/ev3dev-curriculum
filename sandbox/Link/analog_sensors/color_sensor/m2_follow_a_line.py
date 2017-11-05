@@ -51,7 +51,7 @@ def main():
             print("Calibrate the black light level")
             # TODO: 3. Read the reflected_light_intensity property of the color sensor and set black_level
 
-           
+
 
             print("New black level is {}.".format(black_level))
         elif command_to_run == 'f':

@@ -36,6 +36,9 @@ def main():
         #   assert self.ir_sensor
         # Then here you can use a command like robot.ir_sensor.proximity
 
+        if robot.ir_sensor.proximity < 10:
+            ev3.Sound.beep()
+
         time.sleep(0.1)
 
     # TODO: 3. Call over a TA or instructor to sign your team's checkoff sheet.
