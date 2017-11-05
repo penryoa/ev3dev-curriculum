@@ -39,11 +39,12 @@ def main():
         height = robot.pixy.value(4)
         print("(X,Y) = ({},{}) Width = {} Height = {}".format(pixy_x, pixy_y, width, height))
 
-        # TODO: 3. Use the x value to turn the robot
+        # DONE: 3. Use the x value to turn the robot
         #   If the Pixy x value is less than 150 turn left (-turn_speed, turn_speed)
         #   If the Pixy x value is greater than 170 turn right (turn_speed, -turn_speed)
         #   If the Pixy x value is between 150 and 170 stop the robot
         # Continuously track the color until the touch sensor is pressed to end the program.
+
         if pixy_x < 150:
             left_motor.run_forever(speed_sp = -turn_speed)
             right_motor.run_forever(speed_sp = turn_speed)
