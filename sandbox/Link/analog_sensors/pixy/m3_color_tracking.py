@@ -26,6 +26,8 @@ def main():
     robot = robo.Snatch3r()
     robot.pixy.mode = "SIG1"
     turn_speed = 100
+    left_motor = ev3.LargeMotor(ev3.OUTPUT_B)
+    right_motor = ev3.LargeMotor(ev3.OUTPUT_C)
 
     while not robot.touch_sensor.is_pressed:
 
@@ -42,8 +44,16 @@ def main():
         #   If the Pixy x value is greater than 170 turn right (turn_speed, -turn_speed)
         #   If the Pixy x value is between 150 and 170 stop the robot
         # Continuously track the color until the touch sensor is pressed to end the program.
-
-
+        if pixy_x < 150:
+            left_motor.run_forever(speed_sp = -turn_speed)
+            right_motor.run_forever(speed_sp = turn_speed)
+        if pixy_x > 170:
+            left_motor.run_forever(speed_sp = turn_speed)
+            right_motor.run_forever(speed_sp = -turn_speed)
+        if pixy_x > 150:
+            if pixy_x < 170:
+                left_motor.stop()
+                right_motor.stop()
 
         time.sleep(0.25)
 
