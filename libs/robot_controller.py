@@ -162,6 +162,9 @@ class Snatch3r(object):
                     print("On the right heading. Distance: ", current_distance)
                     # You add more!
                     if current_distance == 0:
+                        self.left_motor.run_forever(speed_sp=forward_speed)
+                        self.right_motor.run_forever(speed_sp=forward_speed)
+                        time.sleep(0.5)
                         self.left_motor.stop()
                         self.right_motor.stop()
                         return True
