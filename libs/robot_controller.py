@@ -160,7 +160,7 @@ class Snatch3r(object):
                     if current_distance == 0:
                         self.left_motor.run_forever(speed_sp=forward_speed)
                         self.right_motor.run_forever(speed_sp=forward_speed)
-                        time.sleep(0.5)
+                        time.sleep(0.75)
                         self.left_motor.stop()
                         self.right_motor.stop()
                         return True
