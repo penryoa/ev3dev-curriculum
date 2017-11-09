@@ -18,24 +18,26 @@ The goal of this project is to get the robot to the Cha Cha Slide! Should be fun
 - User can input a number of seconds to do the "Cha Cha real smooth" command. Because the robot is slow,
     If the user inputs anything under ten seconds, it will be accounted as ten. The robot has got to
     cha cha real smooth, you know? To do this to my satisfaction, the robot needs a bit of time!
-- Just for fun, the LED's will go off on the "Everybody clap your hands!" command.
+- Just for fun, the LED's will be red on the "Everybody clap your hands!" command.
 
 """
 
 import ev3dev.ev3 as ev3
 import time
 import math
-import robot_controller as robo
+import penryoa_robot_controller as robo
 import tkinter
 from tkinter import ttk
-import mqtt_remote_method_calls as com
+import penryoa_mqtt_remote_method_calls as com
 
 """
 NOTE TO SELF: Make com and robo go to my own copies in my folder.
 """
 robot = robo.Snatch3r
 
-# Making the PC remote:
+"""
+                                                    PC remote
+"""
 def main():
     client = com.MqttClient()
     client.connect_to_ev3()
@@ -46,13 +48,53 @@ def main():
     main_frame = ttk.Frame(root, padding=20, relief='raised')
     main_frame.grid()
 
-    forward_button = ttk.Button(main_frame, text="Forward")
-    forward_button.grid(row=2, column=1)
-    forward_button['command'] = lambda: go_forward(mqtt_client, left_speed_entry, right_speed_entry)
-    root.bind('<Up>', lambda event: go_forward(mqtt_client, left_speed_entry, right_speed_entry))
+    slide_left_button = ttk.Button(main_frame, text="Slide to the left!")
+    slide_left_button.grid(row=0, column=0)
+    slide_left_button['command'] = lambda: slide_left(client)
+    root.bind('<Left>', lambda event: slide_left(client)
+
+    slide_right_button = ttk.Button(main_frame, text="Slide to the right!")
+    slide_right_button.grid(row=0, column=0)
+    slide_right_button['command'] = lambda: slide_right(client)
+    root.bind('<Right>', lambda event: slide_right(client)
 
 
 
+
+
+
+"""
+                                    Defining the functions that the buttons call
+"""
 
 def slide_left(client):
-    print('Slide to the left!')
+    print('Slide to the left')
+    client.send_message(slide_to_left)
+
+def left_stomp(client):
+    print("Left foot, let's stomp!")
+    client.send_message(left_stomp)
+
+def slide_right(client):
+    print('Slide to the right')
+    client.send_message(slide_to_right)
+
+def right_stomp(client):
+    print("Right foot, let's stomp!")
+    client.send_message(right_stomp)
+
+def one_hop(client):
+    print('One hop this time')
+    client.send_message(one_hop)
+
+def two_hops(client):
+    print('Two hops')
+    client.send_message(two_hops)
+
+def freeze_clap(client):
+    print('FREEZE... Now everybody clap your hands!')
+    client.send_message(freeze_clap)
+
+def cha_cha_smooth(client, seconds_to_cha_cha):
+    print("Cha cha now, y'all.")
+    client.send_message("turn_right", [int(seconds_to_cha_cha.get())])
