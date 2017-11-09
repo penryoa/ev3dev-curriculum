@@ -7,6 +7,7 @@ def main():
     robot = robo.Snatch3r()
     mqtt_client = com.MqttClient(robot)
     mqtt_client.connect_to_pc()
-    
+
     ev3.Sound.Speak("I'm connected")
 
+main()
