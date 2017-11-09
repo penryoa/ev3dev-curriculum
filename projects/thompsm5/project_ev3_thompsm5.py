@@ -8,6 +8,6 @@ def main():
     mqtt_client = com.MqttClient(robot)
     mqtt_client.connect_to_pc()
 
-    ev3.Sound.Speak("I'm connected")
+    ev3.Sound.speak("I'm connected")
 
 main()
