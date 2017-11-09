@@ -86,6 +86,9 @@ def puzzle_1(r, mqtt_client):
 
 def snakes(r):
     r.destroy()
+    
+
+
 
 
 
