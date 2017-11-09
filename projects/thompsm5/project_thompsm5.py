@@ -63,7 +63,7 @@ def start_adventure(name_entry, root1, mqtt_client):
 
     ready = ttk.Button(frame, text = "I'm Ready!")
     ready.grid(row=4, column=1)
-    ready['command'] = lambda: [puzzle_1(root, mqtt_client),mqtt_client.send_message(ev3.Sound.Speak("I am ready. Let's go."))]
+    ready['command'] = lambda: [puzzle_1(root, mqtt_client),mqtt_client.send_message(ev3.Sound.speak("I am ready. Let's go."))]
     root.bind('<Return>', lambda event: puzzle_1(root, mqtt_client))
 
     root.mainloop()
