@@ -189,3 +189,7 @@ class Snatch3r(object):
     def speak(self):
         ev3.Sound.speak("I am ready. Let's go.")
 
+    def snakes(self):
+        
+        ev3.Sound.speak("Snakes. Why did it have to be snakes?")
+

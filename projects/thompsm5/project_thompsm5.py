@@ -80,13 +80,13 @@ def puzzle_1(r, mqtt_client):
 
     solved = ttk.Button(frame, text='Solved')
     solved.grid()
-    solved['command']=lambda : snakes(root)
+    solved['command']=lambda : snakes(root, mqtt_client)
 
     root.mainloop()
 
-def snakes(r):
+def snakes(r, mqtt_client):
     r.destroy()
-    
+    mqtt_client.send_message("snakes")
 
 
 
