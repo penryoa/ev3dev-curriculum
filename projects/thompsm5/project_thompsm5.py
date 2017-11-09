@@ -4,15 +4,18 @@ import time
 import json
 import collections
 import paho.mqtt.client as mqtt
+import mqtt_remote_method_calls as com
 import tkinter
 from tkinter import ttk
 import PIL
 from PIL import ImageTk, Image
 
 def main():
-    welcome_screen()
+    mqtt_client = com.MqttClient()
+    mqtt_client.connect_to_ev3()
+    welcome_screen(mqtt_client)
 
-def welcome_screen():
+def welcome_screen(mqtt_client):
     root = tkinter.Tk()
     root.title = "Indiana Jone's Adventure"
 
@@ -35,12 +38,12 @@ def welcome_screen():
 
     submit = ttk.Button(frame1, text = "Submit")
     submit.grid(row=3, column=1)
-    submit['command'] = lambda: start_adventure(name_entry, root)
-    root.bind('<Return>', lambda event: start_adventure(name_entry, root))
+    submit['command'] = lambda: start_adventure(name_entry, root, mqtt_client)
+    root.bind('<Return>', lambda event: start_adventure(name_entry, root, mqtt_client))
 
     root.mainloop()
 
-def start_adventure(name_entry, root1):
+def start_adventure(name_entry, root1, mqtt_client):
     name = name_entry.get()
     root1.destroy()
     root = tkinter.Tk()
@@ -60,14 +63,14 @@ def start_adventure(name_entry, root1):
 
     ready = ttk.Button(frame, text = "I'm Ready!")
     ready.grid(row=4, column=1)
-    ready['command'] = lambda: puzzle_1(root)
-    root.bind('<Return>', lambda event: puzzle_1(root))
+    ready['command'] = lambda: [puzzle_1(root, mqtt_client),mqtt_client.send_message(ev3.Sound.Speak("I am ready. Let's go."))]
+    root.bind('<Return>', lambda event: puzzle_1(root, mqtt_client))
 
     root.mainloop()
 
-def puzzle_1(r):
+def puzzle_1(r, mqtt_client):
     r.destroy()
-    ev3.Sound.Speak("I am ready. Let's go.")
+
     root = tkinter.Tk()
 
     frame = ttk.Frame(root, padding=20, relief='raised')
