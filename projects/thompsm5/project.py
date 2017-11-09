@@ -22,6 +22,11 @@ def welcome_screen():
     label = ttk.Label(frame1, justify=tkinter.LEFT, text="Welcome to Indy's Adventure")
     label.grid(columnspan=2)
 
+    path = "C:/Users/thompsm5/Pictures/CSSE/062612-indiana-jones.jpg"
+    indy = ImageTk.PhotoImage(Image.open(path))
+    label1 = ttk.Label(frame1, image=indy)
+    label1.grid(row=1, column=0)
+
     label2 = ttk.Label(frame1, justify=tkinter.LEFT, text="What is your name?")
     label2.grid(columnspan=2)
 
@@ -43,12 +48,14 @@ def start_adventure(name_entry, root1):
     frame = ttk.Frame(root, padding=20, relief='raised')
     frame.grid()
 
-    path = ''
+    path = "C:/Users/thompsm5/Pictures/CSSE/indiana-jones-header.jpg"
     indy = ImageTk.PhotoImage(Image.open(path))
     label = ttk.Label(frame, justify=tkinter.LEFT, text="Great, " + str(name) + ", let's begin your adventure.")
     label.grid(row=0, column=0)
+    label1 = ttk.Label(frame, image = indy)
+    label1.grid(row=1,column=0)
 
-    label2 = ttk.Label(frame, justify=tkinter.LEFT, text="There is tale of an ancient treasure in a hidden mystical cave.\nIndiana Jones has enlisted you to help him find the artifact.\nYou must go through three daunting tasks to find it.\nPass and you will be rewarded treasures beyond your wildest dreams.\nFail, and you might be run over by a loose boulder.\nOr worse, attacked by snakes.\n\nAre you ready?")
+    label2 = ttk.Label(frame, justify=tkinter.LEFT, text="There is tale of an ancient treasure in a hidden mystical cave.\nIndiana Jones has enlisted you to help him find the artifact.\nYou must go through three daunting tasks to find it.\nPass and you will be rewarded with treasures beyond your wildest dreams.\nFail, and you might be run over by a loose boulder.\nOr worse, attacked by snakes.\n\nAre you ready?")
     label2.grid(row=3, column=0)
 
     ready = ttk.Button(frame, text = "I'm Ready!")
@@ -60,6 +67,7 @@ def start_adventure(name_entry, root1):
 
 def puzzle_1(r):
     r.destroy()
+    ev3.Sound.Speak("I am ready. Let's go.")
     root = tkinter.Tk()
 
     frame = ttk.Frame(root, padding=20, relief='raised')
