@@ -73,6 +73,7 @@ def puzzle_1(r):
     frame = ttk.Frame(root, padding=20, relief='raised')
     frame.grid()
 
+
     solved = ttk.Button(frame, text='Solved')
     solved.grid()
     solved['command']=lambda : snakes(root)
