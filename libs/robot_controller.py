@@ -73,7 +73,6 @@ class Snatch3r(object):
 
         ev3.Sound.beep().wait()
 
-
     def arm_calibration(self):
         self.arm_motor.run_forever(speed_sp=MAX_SPEED)
         while True:
@@ -88,7 +87,6 @@ class Snatch3r(object):
         ev3.Sound.beep()
         self.arm_motor.position = 0  # Calibrate the down position as 0 (this line is correct as is).
 
-
     def arm_up(self):
         self.arm_motor.run_forever(speed_sp=MAX_SPEED)
         while True:
@@ -98,14 +96,12 @@ class Snatch3r(object):
         self.arm_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
         ev3.Sound.beep()
 
-
     def arm_down(self):
         arm_revolutions_for_full_range = 14.2 * 360
         self.arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range)
         self.arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep()
         self.arm_motor.position = 0
-
 
     def shutdown(self):
         self.running = False
@@ -184,12 +180,12 @@ class Snatch3r(object):
                     print("Heading too far off to fix: ", current_heading)
 
             time.sleep(0.2)
-
-        # The touch_sensor was pressed to abort the attempt if this code runs.
         print("Abandon ship!")
         ev3.stop()
         return False
 
         # TODO: Implement the Snatch3r class as needed when working the sandox exercises
-    # (and delete these comments)
+
+    def speak(self):
+        ev3.Sound.speak("I am ready. Let's go.")
 

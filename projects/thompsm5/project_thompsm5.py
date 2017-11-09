@@ -46,9 +46,9 @@ def welcome_screen(mqtt_client):
 def start_adventure(name_entry, root1, mqtt_client):
     name = name_entry.get()
     root1.destroy()
-    root = tkinter.Tk()
+    root2 = tkinter.Tk()
 
-    frame = ttk.Frame(root, padding=20, relief='raised')
+    frame = ttk.Frame(root2, padding=20, relief='raised')
     frame.grid()
 
     path = "C:/Users/thompsm5/Pictures/CSSE/indiana-jones-header.jpg"
@@ -63,12 +63,13 @@ def start_adventure(name_entry, root1, mqtt_client):
 
     ready = ttk.Button(frame, text = "I'm Ready!")
     ready.grid(row=4, column=1)
-    ready['command'] = lambda: [puzzle_1(root, mqtt_client),mqtt_client.send_message(ev3.Sound.speak("I am ready. Let's go."))]
-    root.bind('<Return>', lambda event: puzzle_1(root, mqtt_client))
+    ready['command'] = lambda: [puzzle_1(root2, mqtt_client)]
+    root2.bind('<Return>', lambda event: puzzle_1(root2, mqtt_client))
 
-    root.mainloop()
+    root2.mainloop()
 
 def puzzle_1(r, mqtt_client):
+    mqtt_client.send_message("speak")
     r.destroy()
 
     root = tkinter.Tk()
