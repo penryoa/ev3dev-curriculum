@@ -20,16 +20,16 @@ def buttons():
     root = tkinter.Tk()
     root.title("Let's Get Some Aliens")
 
-    main_frame = ttk.Frame(root, padding=20, relief='raised')
+    main_frame = ttk.Frame(root, padding=110, relief='raised')
     main_frame.grid()
 
     find_them_button = ttk.Button(main_frame, text="Find Them")
-    find_them_button.grid(row=2, column=1)
+    find_them_button.grid(row=1, column=1)
     find_them_button['command'] = lambda: find_them(mqtt_client)
     root.bind('<f>', lambda event: find_them(mqtt_client))
 
     grab_them_button = ttk.Button(main_frame, text="Grab Them")
-    grab_them_button.grid(row=3, column=1)
+    grab_them_button.grid(row=2, column=1)
     grab_them_button['command'] = lambda: grab_them(mqtt_client, right_speed_entry)
     root.bind('<g>', lambda event: grab_them(mqtt_client, right_speed_entry))
 
@@ -38,17 +38,13 @@ def buttons():
     place_them_button['command'] = lambda: place_them(mqtt_client, right_speed_entry)
     root.bind('<p>', lambda event: place_them(mqtt_client, right_speed_entry))
 
+    root.mainloop()
 
+def find_them(mqtt_client):
+    print("Finding Them")
+    mqtt_client.send_message("seek_beacon")
 
-def pick_up_alien():
-    robot = robo.Snatch3r()
-    while True:
-        found_beacon = robot.seek_beacon()
-        if found_beacon:
-            ev3.Sound.speak("I got the beacon")
-            robot.arm_up()
-            time.sleep(1)
-            robot.arm_down()
+def 
 
 
 
