@@ -78,7 +78,7 @@ def main():
     button['command'] = lambda: c(client)
     root.bind('<Enter>', lambda event: c(client)
 
-
+ 
 
 """
                                     Defining the functions that the buttons call
