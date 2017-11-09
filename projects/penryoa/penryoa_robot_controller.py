@@ -199,38 +199,62 @@ class Snatch3r(object):
     def slide_to_left(self):
         self.turn_degrees(90,500)
         self.drive_inches(8, 500)
+        ev3.Sound.beep()
+
+    def left_stomp(self):
+        self.turn_degrees(90,500)
+        self.drive_inches(4, 500)
+        ev3.Sound.beep()
 
     def slide_to_right(self):
         self.turn_degrees(-90,500)
         self.drive_inches(8, 500)
+        ev3.Sound.beep()
+
+    def right_stomp(self):
+        self.turn_degrees(-90,500)
+        self.drive_inches(4, 500)
+        ev3.Sound.beep()
 
     def one_hop(self):
         self.drive_inches(5, 500)
+        ev3.Sound.beep()
 
     def two_hops(self):
         self.drive_inches(5, 500)
-        time.sleep(0.5)
+        ev3.Sound.beep()
         self.drive_inches(5, 500)
+        ev3.Sound.beep()
 
     def criss_cross(self):
         self.drive_inches(8, 500)
+        ev3.Sound.beep()
         self.drive_inches(8, -500)
+        ev3.Sound.beep()
 
-    def cha_cha_real_smooth(self, seconds_to_cha_cha):
-        while True:
-            [Time is less than seconds_to_cha_cha]
-            self.drive_inches(6, 900)
-            self.drive_inches(6, -900)
+    def take_it_back(self):
+        self.drive_inches(8, -500)
+        ev3.Sound.beep()
 
-         # HOW TO DO THIS??? #
+    def cha_cha_real_smooth(self, turns_to_cha_cha):
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.AMBER)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.AMBER)
+        self.turn_degrees(360*turns_to_cha_cha, 500)
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
 
 
     def freeze_clap(self):
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
-        self.arm_calibration()
+        ev3.Sound.speak('Freeze')
+        time.sleep(2)
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+        ev3.Sound.speak('Everybody clap your hands')
+        self.arm_calibration()
+
+
 
         # TODO: Implement the Snatch3r class as needed when working the sandox exercises
     # (and delete these comments)

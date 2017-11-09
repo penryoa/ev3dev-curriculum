@@ -43,23 +43,40 @@ def main():
     client.connect_to_ev3()
 
     root = tkinter.Tk()
-    root.title("Remote")
+    root.title("Cha Cha Slide")
 
     main_frame = ttk.Frame(root, padding=20, relief='raised')
     main_frame.grid()
 
     slide_left_button = ttk.Button(main_frame, text="Slide to the left!")
-    slide_left_button.grid(row=0, column=0)
+    slide_left_button.grid(row=1, column=0)
     slide_left_button['command'] = lambda: slide_left(client)
     root.bind('<Left>', lambda event: slide_left(client)
 
     slide_right_button = ttk.Button(main_frame, text="Slide to the right!")
-    slide_right_button.grid(row=0, column=0)
+    slide_right_button.grid(row=1, column=2)
     slide_right_button['command'] = lambda: slide_right(client)
     root.bind('<Right>', lambda event: slide_right(client)
 
+    one_hop_button = ttk.Button(main_frame, text="One hop this time.")
+    one_hop_button.grid(row=0, column=1)
+    one_hop_button['command'] = lambda: one_hop(client)
+    root.bind('<Up>', lambda event: one_hop(client)
 
+    take_back_button = ttk.Button(main_frame, text="Take it back, now, y'all.")
+    take_back_button.grid(row=2, column=1)
+    take_back_button['command'] = lambda: take_it_back(client)
+    root.bind('<Down>', lambda event: take_it_back(client)
 
+    freeze_clap_button = ttk.Button(main_frame, text="Clap your hands!")
+    button.grid(row=0, column=0)
+    button['command'] = lambda: c(client)
+    root.bind('<Space>', lambda event: c(client)
+
+    button = ttk.Button(main_frame, text="")
+    button.grid(row=0, column=0)
+    button['command'] = lambda: c(client)
+    root.bind('<Enter>', lambda event: c(client)
 
 
 
@@ -95,6 +112,10 @@ def freeze_clap(client):
     print('FREEZE... Now everybody clap your hands!')
     client.send_message(freeze_clap)
 
-def cha_cha_smooth(client, seconds_to_cha_cha):
-    print("Cha cha now, y'all.")
-    client.send_message("turn_right", [int(seconds_to_cha_cha.get())])
+def cha_cha_smooth(client, turns_to_cha_cha):
+    print("Cha cha real smooth.")
+    client.send_message("cha_cha_real_smooth", [int(turns_to_cha_cha.get())])
+
+def take_it_back(client):
+    print("Take it back, now, y'all.")
+
