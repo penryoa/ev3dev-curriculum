@@ -28,8 +28,11 @@ import math
 import robot_controller as robo
 import tkinter
 from tkinter import ttk
-import penryoa_mqtt_remote_method_calls as com
+import mqtt_remote_method_calls as com
 
+"""
+NOTE TO SELF: Make com and robo go to my own copies in my folder.
+"""
 robot = robo.Snatch3r
 
 # Making the PC remote:
@@ -43,3 +46,13 @@ def main():
     main_frame = ttk.Frame(root, padding=20, relief='raised')
     main_frame.grid()
 
+    forward_button = ttk.Button(main_frame, text="Forward")
+    forward_button.grid(row=2, column=1)
+    forward_button['command'] = lambda: go_forward(mqtt_client, left_speed_entry, right_speed_entry)
+    root.bind('<Up>', lambda event: go_forward(mqtt_client, left_speed_entry, right_speed_entry))
+
+
+
+
+def slide_left(client):
+    print('Slide to the left!')
