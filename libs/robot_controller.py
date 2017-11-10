@@ -190,6 +190,13 @@ class Snatch3r(object):
         ev3.Sound.speak("I am ready. Let's go.")
 
     def snakes(self):
-        
+        self.left_motor.run_forever(speed_sp=300)
+        self.right_motor.run_forever(speed_sp=300)
+        while True:
+            if self.color_sensor.color is 3:
+                break
+            time.sleep(0.01)
+        self.left_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
+        self.right_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
         ev3.Sound.speak("Snakes. Why did it have to be snakes?")
 

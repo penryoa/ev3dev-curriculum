@@ -87,13 +87,47 @@ def puzzle_1(r, mqtt_client):
 def snakes(r, mqtt_client):
     r.destroy()
     mqtt_client.send_message("snakes")
+    root = tkinter.Tk()
 
+    frame = ttk.Frame(root, padding =20)
+    frame.grid()
 
+    left_speed_label = ttk.Label(frame, text="Left Speed")
+    left_speed_label.grid(row=0, column=0)
+    left_speed_entry = ttk.Entry(frame, width=8)
+    left_speed_entry.insert(0, "600")
+    left_speed_entry.grid(row=1, column=0)
 
+    right_speed_label = ttk.Label(frame, text="Right Speed")
+    right_speed_label.grid(row=0, column=2)
+    right_speed_entry = ttk.Entry(frame, width=8, justify=tkinter.RIGHT)
+    right_speed_entry.insert(0, "600")
+    right_speed_entry.grid(row=1, column=2)
 
+    forward_button = ttk.Button(frame, text="Go Forward")
+    forward_button.grid(row=2, column=1)
+    forward_button['command'] = lambda: mqtt_client.send_message("go_forward", [int(left_speed_entry.get()), int(right_speed_entry.get())])
+    root.bind('<Up>', lambda event: mqtt_client.send_message("go_forward", [int(left_speed_entry.get()), int(right_speed_entry.get())]))
 
+    left_button = ttk.Button(frame, text="Turn Left")
+    left_button.grid(row=3, column=0)
+    left_button['command'] = lambda: mqtt_client.send_message("turn_left", [int(right_speed_entry.get())])
+    root.bind('<Left>', lambda event: mqtt_client.send_message("turn_left", [int(right_speed_entry.get())]))
 
+    stop_button = ttk.Button(frame, text="Stop")
+    stop_button.grid(row=3, column=1)
+    stop_button['command'] = lambda: mqtt_client.send_message("stop")
+    root.bind('<space>', lambda event: mqtt_client.send_message("stop"))
 
+    right_button = ttk.Button(frame, text="Right")
+    right_button.grid(row=3, column=2)
+    right_button['command'] = lambda: mqtt_client.send_message("turn_right", [int(left_speed_entry.get())])
+    root.bind('<Right>', lambda event: mqtt_client.send_message("turn_right", [int(left_speed_entry.get())]))
+
+    back_button = ttk.Button(frame, text="Back")
+    back_button.grid(row=4, column=1)
+    back_button['command'] = lambda: mqtt_client.send_message("go_backward", [int(left_speed_entry.get()), int(right_speed_entry.get())])
+    root.bind('<Down>', lambda event: mqtt_client.send_message("go_backward", [int(left_speed_entry.get()), int(right_speed_entry.get())]))
 
 
 
