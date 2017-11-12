@@ -7,7 +7,6 @@ from tkinter import ttk
 import mqtt_remote_method_calls as com
 
 def main():
-    ev3.Sound.speak("""Let's get some aliens""")
     buttons()
 
 
@@ -103,27 +102,27 @@ def place_them(mqtt_client):
 
 #This will now control the robot after it's found an alien
 def go_forward(mqtt_client, left_speed_entry, right_speed_entry):
-    print("go_forward")
+    print("Going Forward")
     mqtt_client.send_message("go_forward", [int(left_speed_entry), int(right_speed_entry)])
 
 
 def stop(mqtt_client):
-    print("stop")
+    print("Stop")
     mqtt_client.send_message("stop")
 
 
 def go_backward(mqtt_client, left_speed_entry, right_speed_entry):
-    print("go_backward")
+    print("Going Backward")
     mqtt_client.send_message("go_backward", [int(left_speed_entry), int(right_speed_entry)])
 
 
 def turn_left(mqtt_client, right_speed_entry):
-    print("turn_left")
+    print("Turning Left")
     mqtt_client.send_message("turn_left", [int(right_speed_entry)])
 
 
 def turn_right(mqtt_client, left_speed_entry):
-    print("turn_right")
+    print("Turning Right")
     mqtt_client.send_message("turn_right", [int(left_speed_entry)])
 
 
@@ -134,7 +133,7 @@ def play_tunes(mqtt_client):
 
 def quit_program(mqtt_client, shutdown_ev3):
     if shutdown_ev3:
-        print("shutdown")
+        print("Shutdown")
         mqtt_client.send_message("shutdown_alien")
     mqtt_client.close()
     exit()
