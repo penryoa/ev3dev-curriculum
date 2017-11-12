@@ -114,7 +114,7 @@ def snakes(r, mqtt_client):
     stop_button = ttk.Button(frame, text="Stop")
     stop_button.grid(row=3, column=1)
     stop_button['command'] = lambda: mqtt_client.send_message("stop")
-    root.bind('<space>', lambda event: mqtt_client.send_message("stop")) 
+    root.bind('<space>', lambda event: mqtt_client.send_message("stop"))
 
     right_button = ttk.Button(frame, text="Turn Right")
     right_button.grid(row=3, column=2)
