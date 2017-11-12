@@ -28,6 +28,7 @@ class Snatch3r(object):
         self.ir_sensor = ev3.InfraredSensor()
         self.beacon_seeker = ev3.BeaconSeeker(channel=1)
         self.pixy = ev3.Sensor(driver_name="pixy-lego")
+        self.led = ev3.Leds()
 
 
         assert self.left_motor.connected
@@ -38,6 +39,7 @@ class Snatch3r(object):
         assert self.ir_sensor
         assert self.beacon_seeker
         assert self.pixy
+        assert self.led
 
     def drive_inches(self, inches_target, speed_deg_per_second):
         speed = speed_deg_per_second
@@ -73,7 +75,6 @@ class Snatch3r(object):
 
         ev3.Sound.beep().wait()
 
-
     def arm_calibration(self):
         self.arm_motor.run_forever(speed_sp=MAX_SPEED)
         while True:
@@ -88,7 +89,6 @@ class Snatch3r(object):
         ev3.Sound.beep()
         self.arm_motor.position = 0  # Calibrate the down position as 0 (this line is correct as is).
 
-
     def arm_up(self):
         self.arm_motor.run_forever(speed_sp=MAX_SPEED)
         while True:
@@ -98,14 +98,12 @@ class Snatch3r(object):
         self.arm_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
         ev3.Sound.beep()
 
-
     def arm_down(self):
         arm_revolutions_for_full_range = 14.2 * 360
         self.arm_motor.run_to_rel_pos(position_sp=-arm_revolutions_for_full_range)
         self.arm_motor.wait_while(ev3.Motor.STATE_RUNNING)
         ev3.Sound.beep()
         self.arm_motor.position = 0
-
 
     def shutdown(self):
         self.running = False
@@ -184,14 +182,33 @@ class Snatch3r(object):
                     print("Heading too far off to fix: ", current_heading)
 
             time.sleep(0.2)
-
-        # The touch_sensor was pressed to abort the attempt if this code runs.
         print("Abandon ship!")
         ev3.stop()
         return False
 
         # TODO: Implement the Snatch3r class as needed when working the sandox exercises
-    # (and delete these comments)
+
+    def speak(self):
+        ev3.Sound.speak("I am ready. Let's go.")
+
+    def f_snakes(self, color_to_seek, left_speed, right_speed):
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+        self.left_motor.run_forever(speed_sp=left_speed)
+        self.right_motor.run_forever(speed_sp=right_speed)
+        while True:
+            if self.color_sensor.color is color_to_seek:
+                break
+            time.sleep(0.01)
+
+        self.left_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
+        self.right_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
+        self.left_motor.run_timed(speed_sp = -300, time_sp=1500)
+        self.right_motor.run_timed(speed_sp=-300, time_sp=1500)
+        ev3.Sound.speak("Snakes. Why did it have to be snakes?")
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+
 
 
     def play_tunes(self):
