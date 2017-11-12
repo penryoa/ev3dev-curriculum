@@ -82,7 +82,7 @@ def start_adventure(name_entry, root1, mqtt_client):
 
 def snakes(r, mqtt_client):
     mqtt_client.send_message("speak")
-    color_to_seek = ev3.ColorSensor.COLOR_GREEN
+    color_to_seek = ev3.ColorSensor.COLOR_WHITE
     r.destroy()
     root = tkinter.Tk()
 
@@ -135,6 +135,7 @@ def snakes(r, mqtt_client):
 
 def sphinx(r, mqtt_client):
     r.destroy()
+
     root = tkinter.Tk()
 
     frame = ttk.Frame(root, padding=20, relief='raised')
@@ -191,6 +192,42 @@ def answer(ansent, r, mqtt_client):
 
 def treasure(r, mqtt_client):
     r.destroy()
+    root = tkinter.Tk()
+    frame = ttk.Frame()
+    frame.grid()
+    label = ttk.Label(frame, text = "You've made it past the Sphinx. You're almost there! \nNow you must select the correct artifact. But which one is it?\n They are all beautiful pieces of treasure. How will you determine which is the correct one?")
+    label.grid()
+    path = "C:/Users/thompsm5/Pictures/CSSE/grail-hd2.jpg"
+    indy = ImageTk.PhotoImage(Image.open(path))
+    label1 = ttk.Label(frame, image = indy)
+    label1.grid()
+    label2 = ttk.Label(frame, text = "Only those with pure intentions can choose the right treasure. \n Do you have pure intentions?")
+    label2.grid()
+
+    yes = ttk.Button(frame, text = "Yes, I have a pure heart")
+    yes.grid()
+    yes['command'] = lambda : [mqtt_client.send_message("seek_beacon"), mqtt_client.send_message("treasure")]
+
+    no = ttk.Button(frame, text = "No, I have a black heart")
+    no.grid()
+    no['command'] = lambda : sad(root, mqtt_client)
+
+    root.mainloop()
+
+def sad(r, mqtt_client):
+    r.destroy()
+    print('You have failed')
+    root = tkinter.Tk()
+    frame = ttk.Frame(width=200, height=200)
+    frame.grid()
+    label = ttk.Label(frame, text="You have failed.")
+    label.grid()
+    cont = ttk.Button(frame, text='Continue')
+    cont.grid()
+    cont['command'] = (lambda: treasure(root, mqtt_client))
+    root.bind('<Return>', lambda event: treasure(root, mqtt_client))
+    root.mainloop()
+
 
 
 

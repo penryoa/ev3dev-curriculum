@@ -192,21 +192,26 @@ class Snatch3r(object):
         ev3.Sound.speak("I am ready. Let's go.")
 
     def f_snakes(self, color_to_seek, left_speed, right_speed):
-        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
-        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
         self.left_motor.run_forever(speed_sp=left_speed)
         self.right_motor.run_forever(speed_sp=right_speed)
         while True:
             if self.color_sensor.color is color_to_seek:
                 break
             time.sleep(0.01)
-
         self.left_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
         self.right_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
-        self.left_motor.run_timed(speed_sp = -300, time_sp=1500)
-        self.right_motor.run_timed(speed_sp=-300, time_sp=1500)
-        ev3.Sound.speak("Snakes. Why did it have to be snakes?")
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+        self.left_motor.run_timed(speed_sp = -300, time_sp=1500)
+        self.right_motor.run_timed(speed_sp=-300, time_sp=1500)
+        ev3.Sound.play("C:/Users/thompsm5/Pictures/CSSE/snakes.wav")
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+
+    def treasure(self):
+        ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav")
+        ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav")
+        self.arm_up()
+        self.arm_down()
 
 
