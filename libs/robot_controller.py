@@ -215,3 +215,17 @@ class Snatch3r(object):
         self.arm_down()
 
 
+
+    def play_tunes(self):
+        ev3.Sound.play("/home/robot/csse120/assets/sounds/xfilestheme.wav")
+
+
+    def shutdown_alien(self):
+        self.running = False
+        while True:
+            if ev3.Button.backspace:
+                print('Goodbye.')
+                break
+        ev3.Leds.set_color(ev3.Leds.LEFT,ev3.Leds.RED)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+        ev3.Sound.speak("Mission Accomplished").wait()
