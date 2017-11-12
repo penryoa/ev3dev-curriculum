@@ -204,13 +204,12 @@ class Snatch3r(object):
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
         self.left_motor.run_timed(speed_sp = -300, time_sp=1500)
         self.right_motor.run_timed(speed_sp=-300, time_sp=1500)
-        ev3.Sound.play("/home/robot/csse120/assets/sounds/snakes.wav")
+        ev3.Sound.speak("Snakes. Why did it have to be snakes?")
         ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
         ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
 
     def treasure(self):
-        ev3.Sound.play("/home/robot/csse120/assets/sounds/wisely.wav")
-        ev3.Sound.play("/home/robot/csse120/assets/sounds/Indiana_Jones_Theme_John_Williams.wav")
+        ev3.Sound.play("/home/robot/csse120/assets/sounds/awesome_pcm.wav")
         self.arm_up()
         self.arm_down()
 
