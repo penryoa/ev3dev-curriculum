@@ -28,6 +28,7 @@ class Snatch3r(object):
         self.ir_sensor = ev3.InfraredSensor()
         self.beacon_seeker = ev3.BeaconSeeker(channel=1)
         self.pixy = ev3.Sensor(driver_name="pixy-lego")
+        self.led = ev3.Leds()
 
 
         assert self.left_motor.connected
@@ -38,6 +39,7 @@ class Snatch3r(object):
         assert self.ir_sensor
         assert self.beacon_seeker
         assert self.pixy
+        assert self.led
 
     def drive_inches(self, inches_target, speed_deg_per_second):
         speed = speed_deg_per_second
@@ -189,14 +191,22 @@ class Snatch3r(object):
     def speak(self):
         ev3.Sound.speak("I am ready. Let's go.")
 
-    def snakes(self):
-        self.left_motor.run_forever(speed_sp=300)
-        self.right_motor.run_forever(speed_sp=300)
+    def f_snakes(self, color_to_seek, left_speed, right_speed):
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.GREEN)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.GREEN)
+        self.left_motor.run_forever(speed_sp=left_speed)
+        self.right_motor.run_forever(speed_sp=right_speed)
         while True:
-            if self.color_sensor.color is 3:
+            if self.color_sensor.color is color_to_seek:
                 break
             time.sleep(0.01)
+
         self.left_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
         self.right_motor.stop(stop_action=ev3.Motor.STOP_ACTION_BRAKE)
+        self.left_motor.run_timed(speed_sp = -300, time_sp=1500)
+        self.right_motor.run_timed(speed_sp=-300, time_sp=1500)
         ev3.Sound.speak("Snakes. Why did it have to be snakes?")
+        ev3.Leds.set_color(ev3.Leds.LEFT, ev3.Leds.RED)
+        ev3.Leds.set_color(ev3.Leds.RIGHT, ev3.Leds.RED)
+
 
